@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <h2>To-Do List</h2>
+    <input id="taskInput" type="text" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+
+            // get the input field 
+            const input = document.getElementById("taskInput");
+
+            // get the value of the task 
+            const task = input.value.trim();
+
+            // if the user does not write the task make alert
+            if (task === ""){
+                alert('enter the task name!');
+                return;
+            }
+
+            // create <li> tag element 
+            const li = document.createElement("li");
+
+            // store the value that written inside text input
+            li.textContent = task;
+
+            // delete the task when press on it
+            // li.onclick = () => li.remove(); // click to delete
+
+            // write the <li> value on the page
+            document.getElementById("taskList").appendChild(li);
+
+            // reset the input field with empty value 
+            input.value = "";
+        }
+    </script>
+</body>
+
+</html>

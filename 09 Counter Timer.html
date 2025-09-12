@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Countdown Timer</title>
+</head>
+
+<body style="text-align:center; margin-top:50px;">
+    <h2>Countdown Timer</h2>
+    <input id="seconds" type="number" placeholder="Enter seconds">
+    <button onclick="startTimer()">Start</button>
+    <h1 id="display"></h1>
+
+    <script>
+        let timer;
+        function startTimer() {
+            clearInterval(timer);
+            let time = Number(document.getElementById("seconds").value);
+            const display = document.getElementById("display");
+            timer = setInterval(() => {
+                display.textContent = time;
+                time--;
+                if (time < 0) {
+                    clearInterval(timer);
+                    display.textContent = " Time's up!";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

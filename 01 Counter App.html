@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+</head>
+<body>
+    <center>
+        <h1 id="counter">0</h1>
+
+        <button onclick="increase()">Increase</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="decrease()">Decrease</button>
+    </center>
+
+
+
+    <script>
+        let count = 0;
+
+        // assign the value of the counter on the body of the html file 
+        function update(){
+            document.getElementById('counter').innerText = count;
+        }
+
+
+        // increase the value of the counter by one 
+        function increase(){
+            count ++;
+            update();
+        }
+
+
+        // reset the value of the counter to 0
+        function reset(){
+            count = 0;
+            update();
+        }
+
+        // decrease the value of the counter by one
+        function decrease(){
+            count --;
+            update();
+        }
+    </script>
+</body>
+</html>

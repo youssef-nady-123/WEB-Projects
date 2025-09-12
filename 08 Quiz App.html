@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        .question {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Quiz App</h2>
+    <div id="quiz"></div>
+    <button onclick="submit()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        const quizData = [
+            { q: "What is 2+2?", a: ["3", "4", "5"], correct: 1 },
+            { q: "Capital of France?", a: ["Paris", "Rome", "London"], correct: 0 },
+            { q: "JS stands for?", a: ["Java Source", "JavaScript", "JustScript"], correct: 1 }
+        ];
+        const quizDiv = document.getElementById("quiz");
+        quizData.forEach((item, i) => {
+            const div = document.createElement("div");
+            div.innerHTML = `<p class="question">${item.q}</p>` +
+                item.a.map((ans, j) => `<label><input type="radio" name="q${i}" value="${j}">${ans}</label><br>`).join("");
+            quizDiv.appendChild(div);
+        });
+        function submit() {
+            let score = 0;
+            quizData.forEach((item, i) => {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && Number(selected.value) === item.correct) score++;
+            });
+            document.getElementById("result").textContent = `You scored ${score}/${quizData.length}`;
+        }
+    </script>
+</body>
+
+</html>

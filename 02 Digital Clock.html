@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Clock</title>
+</head>
+
+<body>
+    <center>
+        <div id="clock"></div>
+    </center>
+    <script>
+        /*
+            new Date() → creates a date object with current date and time.
+            .toLocaleTimeString() → extracts just the time portion, formatted according to local or specified settings.
+        */
+        setInterval(
+            function () {
+                const now = new Date();
+                document.getElementById("clock").textContent =
+                    now.toLocaleTimeString();
+            }, 1000);
+    </script>
+</body>
+
+</html>
